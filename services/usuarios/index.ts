@@ -10,5 +10,6 @@ export {
     atualizar,
     criar,
     desativar,
-    autorizar
+    autorizar,
+    importarUsuariosAD
 } from './server-functions';

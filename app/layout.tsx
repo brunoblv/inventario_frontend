@@ -14,8 +14,8 @@ const myFont = localFont({
 });
 
 export const metadata: Metadata = {
-	title: 'Template 2025',
-	description: 'Template 2025',
+	title: 'Sistema de Gerenciamento de Inventário',
+	description: 'Sistema de Gerenciamento de Inventário para o SMUL',
 };
 
 export default function RootLayout({

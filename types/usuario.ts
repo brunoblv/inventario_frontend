@@ -57,6 +57,12 @@ export interface IUsuarioTecnico {
 	nome: string;
 }
 
+export interface IImportarADResponse {
+	importados: number;
+	usuarios: IUsuario[];
+	jaCadastrados: number;
+}
+
 export interface IRespostaUsuario {
 	ok: boolean;
 	error: string | null;
@@ -66,6 +72,7 @@ export interface IRespostaUsuario {
 		| IUsuario[]
 		| IUsuarioTecnico[]
 		| IPaginadoUsuario
+		| IImportarADResponse
 		| { autorizado: boolean }
 		| { desativado: boolean }
 		| null;

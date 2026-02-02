@@ -1,6 +1,19 @@
 /** @format */
 
-import { ChevronRight, House, LucideProps, Users } from 'lucide-react';
+import {
+	ChevronRight,
+	House,
+	LayoutGrid,
+	LucideProps,
+	Package,
+	Users,
+	List,
+	Building2,
+	Tags,
+	FileText,
+	BarChart3,
+	Truck,
+} from 'lucide-react';
 
 import {
 	Collapsible,
@@ -43,21 +56,22 @@ export async function NavMain() {
 		url: string;
 	}
 
+	// Menu geral (todos os usuários logados)
 	const menuUsuario: IMenu[] = [
-		{
-			icone: House,
-			titulo: 'Página Inicial',
-			url: '/',
-		},
+		{ icone: House, titulo: 'Home', url: '/' },
+		{ icone: FileText, titulo: 'Termo Entrega/Retirada', url: '/termo' },
 	];
 
+	// Menu administração (ADM)
 	const menuAdmin: IMenu[] = [
-		{
-			icone: Users,
-			titulo: 'Usuários',
-			url: '/usuarios',
-			permissao: 'usuario_buscar_tudo',
-		},
+		{ icone: Users, titulo: 'Usuários', url: '/usuarios' },
+		{ icone: Building2, titulo: 'Unidades', url: '/unidades' },
+		{ icone: Package, titulo: 'Cadastro de Bens', url: '/cadastro-de-bens' },
+		{ icone: Tags, titulo: 'Tipos de Bens', url: '/tipos-de-bens' },
+		{ icone: LayoutGrid, titulo: 'Inventário', url: '/inventario' },
+		{ icone: List, titulo: 'Listar Bens', url: '/listar-movimentar' },
+		{ icone: Truck, titulo: 'Movimentar Bens', url: '/movimentar' },
+		{ icone: BarChart3, titulo: 'Dashboard', url: '/dashboard' },
 	];
 
 	return (

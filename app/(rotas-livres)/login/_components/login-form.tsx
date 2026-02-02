@@ -22,7 +22,6 @@ import Logo from './logo';
 import { signIn } from 'next-auth/react';
 import { toast } from 'sonner';
 import { Loader2 } from 'lucide-react';
-// import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
 	login: z
@@ -49,12 +48,21 @@ export function LoginForm() {
 
 	async function onSubmit({ login, senha }: z.infer<typeof formSchema>) {
 		try {
-			const resp = await signIn('credentials', { login, senha });
-			console.log(resp);
-			if (!resp?.ok) toast.error('Não foi possível realizar o login.');
-			else toast.success('Login realizado com sucesso.');
+			const result = await signIn('credentials', {
+				login,
+				senha,
+				redirect: false,
+			});
+			// NextAuth v5: com redirect:false, sucesso = sem error; falha = result.error preenchido
+			if (result?.error) {
+				toast.error('Não foi possível realizar o login. Verifique usuário e senha.');
+				return;
+			}
+			toast.success('Login realizado com sucesso.');
+			// Redirecionar com window.location para a sessão ser aplicada de forma confiável
+			window.location.href = '/';
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 			toast.error('Não foi possível realizar o login.');
 		}
 	}
