@@ -2,6 +2,8 @@
 
 export interface ITermoData {
 	itensPatrimonio: string[];
+	/** Nº de Série (vindo do banco ao selecionar). Opcional para dados antigos. */
+	itensNumSerie?: string[];
 	itensDescricao: string[];
 	dataEntregue: string;
 	unidadeEntregue: string;
