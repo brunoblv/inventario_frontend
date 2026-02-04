@@ -34,6 +34,7 @@ async function CadastroDeBens({
 	const status = typeof params.status === 'string' ? params.status : '';
 	const excluido = typeof params.excluido === 'string' ? params.excluido : 'false';
 	const tipo = typeof params.tipo === 'string' ? params.tipo : '';
+	const pesquisar = typeof params.pesquisar === 'string' ? params.pesquisar : '';
 	const pagina = typeof params.pagina === 'string' ? parseInt(params.pagina, 10) : 1;
 	const limite = typeof params.limite === 'string' ? parseInt(params.limite, 10) : LIMITE_PADRAO;
 
@@ -46,6 +47,7 @@ async function CadastroDeBens({
 			status: status || undefined,
 			excluido: excluido !== 'false' ? excluido : undefined,
 			tipo: tipo || undefined,
+			pesquisar: pesquisar.trim() || undefined,
 			pagina: Number.isNaN(pagina) ? 1 : pagina,
 			limite: Number.isNaN(limite) ? LIMITE_PADRAO : limite,
 		},
@@ -72,6 +74,12 @@ async function CadastroDeBens({
 			<div className="flex flex-col max-w-sm mx-auto md:max-w-full gap-3 my-5 w-full">
 				<Filtros
 					camposFiltraveis={[
+						{
+							nome: 'Nº Patrimônio',
+							tag: 'pesquisar',
+							tipo: 0,
+							placeholder: 'Pesquisar por número de patrimônio',
+						},
 						{
 							nome: 'Status',
 							tag: 'status',

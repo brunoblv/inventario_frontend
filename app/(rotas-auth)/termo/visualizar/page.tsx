@@ -93,7 +93,8 @@ export default function TermoVisualizarPage() {
 						className="h-16 w-auto flex-shrink-0 print:h-14"
 					/>
 					<div className="text-center font-bold">
-						<p className="mb-0">SECRETARIA MUNICIPAL DE URBANISMO E LICENCIAMENTO</p>
+						<p className="mb-0.5">SECRETARIA MUNICIPAL DE URBANISMO E LICENCIAMENTO</p>
+						<p className="mb-0">ATIC – ASSESSORIA DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO</p>
 					</div>
 				</div>
 				<h1 className="text-center text-base font-bold uppercase tracking-wide mb-4 print:text-sm underline">
@@ -196,7 +197,7 @@ export default function TermoVisualizarPage() {
 				<footer className="termo-rodape mt-auto pt-2 text-[10px] text-muted-foreground border-t border-border">
 					<p className="mb-0 text-center">
 						<span ref={rodapeDataRef}>{formatarDataHoraCabecalho()}</span>
-						{' - SGI - Sistema de Gerenciamento de Inventário | 1º via Unidade Recebedora do Bem | 2º via Unidade entregadora do Bem'}
+						{' - SGI - Sistema de Gerenciamento de Inventário | 1º via servidor responsável pelo empréstimo | 2º via SMUL/ATIC'}
 					</p>
 				</footer>
 			</div>

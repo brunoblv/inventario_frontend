@@ -16,3 +16,19 @@ export interface ITermoData {
 }
 
 export const TERMO_STORAGE_KEY = 'sgi-termo-dados';
+
+export interface ITermoEmprestimoData {
+	solicitante: string;
+	rf: string;
+	setorUnidade: string;
+	telefone: string;
+	numPatrimonio: string;
+	tipoEquipamento: string;
+	marcaModelo: string;
+	numSerie: string;
+	dataRetirada: string;
+	dataDevolucao: string;
+	objetivoUso: string;
+}
+
+export const TERMO_EMPRESTIMO_STORAGE_KEY = 'sgi-termo-emprestimo-dados';

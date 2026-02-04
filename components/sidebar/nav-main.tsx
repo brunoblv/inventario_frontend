@@ -7,10 +7,10 @@ import {
 	LucideProps,
 	Package,
 	Users,
-	List,
 	Building2,
 	Tags,
 	FileText,
+	ClipboardList,
 	BarChart3,
 	Truck,
 } from 'lucide-react';
@@ -60,6 +60,7 @@ export async function NavMain() {
 	const menuUsuario: IMenu[] = [
 		{ icone: House, titulo: 'Home', url: '/' },
 		{ icone: FileText, titulo: 'Termo Entrega/Retirada', url: '/termo' },
+		{ icone: ClipboardList, titulo: 'Termo Empréstimo', url: '/termo-emprestimo' },
 	];
 
 	// Menu administração (ADM)
@@ -69,7 +70,6 @@ export async function NavMain() {
 		{ icone: Package, titulo: 'Cadastro de Bens', url: '/cadastro-de-bens' },
 		{ icone: Tags, titulo: 'Tipos de Bens', url: '/tipos-de-bens' },
 		{ icone: LayoutGrid, titulo: 'Inventário', url: '/inventario' },
-		{ icone: List, titulo: 'Listar Bens', url: '/listar-movimentar' },
 		{ icone: Truck, titulo: 'Movimentar Bens', url: '/movimentar' },
 		{ icone: BarChart3, titulo: 'Dashboard', url: '/dashboard' },
 	];

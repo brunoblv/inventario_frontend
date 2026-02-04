@@ -57,7 +57,8 @@ async function MovimentarInner({
 	const unidades = unidadesRes.ok && unidadesRes.data ? unidadesRes.data : [];
 	const usuarios: IUsuario[] =
 		usuariosRes.ok && Array.isArray(usuariosRes.data) ? (usuariosRes.data as IUsuario[]) : [];
-	const userLogin = (session as { usuario?: { login?: string } })?.usuario?.login ?? '';
+	const usuarioSession = (session as { usuario?: { login?: string; usuario?: string } })?.usuario;
+	const userLogin = usuarioSession?.login ?? usuarioSession?.usuario ?? '';
 
 	return (
 		<div className="w-full px-0 md:px-8 relative pb-20 md:pb-14 h-full md:container mx-auto">

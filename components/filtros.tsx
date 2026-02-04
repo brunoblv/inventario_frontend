@@ -61,20 +61,22 @@ export function Filtros({ camposFiltraveis }: FiltrosProps) {
 	}, []);
 
 	useEffect(() => {
-		for (const [key, value] of searchParams) {
-			setFiltros((prev) => ({
-				...prev,
-				[key]: value,
-			}));
-		}
+		const params = Object.fromEntries(searchParams.entries());
+		setFiltros((prev) => ({
+			...prev,
+			...params,
+		}));
 	}, [searchParams]);
 
 	function atualizaFiltros() {
-		let urlParams = '';
+		const params = new URLSearchParams();
 		for (const [key, value] of Object.entries(filtros)) {
-			urlParams += `${key}=${value}&`;
+			if (value != null && String(value).trim() !== '') {
+				params.set(key, String(value).trim());
+			}
 		}
-		router.push(`${pathname}?${urlParams}`);
+		const query = params.toString();
+		router.push(query ? `${pathname}?${query}` : pathname);
 	}
 
 	function limpaFiltros() {
@@ -112,7 +114,7 @@ export function Filtros({ camposFiltraveis }: FiltrosProps) {
 				key={campo.tag}>
 				<p>{campo.nome}</p>
 				<Input
-					value={filtros[campo.tag]}
+					value={filtros[campo.tag] ?? ''}
 					onChange={(e) =>
 						setFiltros((prev) => ({ ...prev, [campo.tag]: e.target.value }))
 					}
@@ -133,7 +135,7 @@ export function Filtros({ camposFiltraveis }: FiltrosProps) {
 					onValueChange={(value) =>
 						setFiltros((prev) => ({ ...prev, [campo.tag]: value }))
 					}
-					value={filtros[campo.tag]}>
+					value={filtros[campo.tag] ?? ''}>
 					<SelectTrigger className='w-full md:w-60 text-nowrap bg-background'>
 						<SelectValue placeholder={campo.placeholder} />
 					</SelectTrigger>
